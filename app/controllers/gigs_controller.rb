@@ -1,0 +1,4 @@
+class GigsController < ApplicationController
+
+
+end

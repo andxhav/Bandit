@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_160530) do
+ActiveRecord::Schema.define(version: 2019_05_06_171943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bands", force: :cascade do |t|
+    t.string "band_name", null: false
+    t.string "scene", null: false
+    t.string "genre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gigs", force: :cascade do |t|
+    t.string "address", null: false
+    t.float "gig_lat", null: false
+    t.float "gig_long", null: false
+    t.datetime "date", null: false
+    t.bigint "band_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["band_id"], name: "index_gigs_on_band_id"
+  end
+
+  create_table "instruments", force: :cascade do |t|
+    t.string "instrument", null: false
+    t.integer "years_experience", null: false
+    t.bigint "musician_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["musician_id"], name: "index_instruments_on_musician_id"
+  end
+
+  create_table "musicians", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "home_town"
+    t.string "email", null: false
+    t.string "scene", null: false
+    t.bigint "band_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["band_id"], name: "index_musicians_on_band_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
