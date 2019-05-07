@@ -4,7 +4,5 @@ class Gig < ApplicationRecord
   validates :gig_long, presence: true
   validates :date, presence: true
 
-  has_many :bands
-
   belongs_to :band
 end

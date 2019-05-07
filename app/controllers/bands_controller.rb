@@ -2,7 +2,6 @@ class BandsController < ApplicationController
   before_action :authorize_user, except: [:index, :show]
 
   def index
-    binding.pry
     @bands = Band.all
     @user = current_user
   end
