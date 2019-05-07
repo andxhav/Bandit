@@ -2,8 +2,11 @@
   <h1>Bands in Your Scene:</h1>
     <div>
       <% @bands.each do |band| %>
-        <% binding.pry %>
-        <h4>#{band.band_name}</h4>
+        <div class="card card-1">
+          <h4>
+          <%= "#{band.band_name}" %>
+          </h4>
+        </div>
       <% end %>
     </div>
 </div>

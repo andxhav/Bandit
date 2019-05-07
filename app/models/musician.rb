@@ -6,5 +6,5 @@ class Musician < ApplicationRecord
   validates :scene, presence: true
 
   has_many :instruments
-  has_many :bands
+  has_many :bands, through: :band_members
 end

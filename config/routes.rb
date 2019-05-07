@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'homes#index'
   devise_for :users
 
+  resources :musicians, only: [:index, :new, :create, :show]  
+
   resources :bands, only: [:index, :show, :new, :create] do
     resources :musicians, only: [:new, :create, :show]
   end

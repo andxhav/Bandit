@@ -1,0 +1,10 @@
+<div>
+  <h1>Musicians in Your Scene:</h1>
+    <div>
+      <% @musicians.each do |musician| %>
+        <div class="card card-1" >
+          <%= "#{musician.first_name}" %>
+        </div>
+      <% end %>
+  </div>
+</div>
