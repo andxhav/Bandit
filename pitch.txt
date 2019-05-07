@@ -1,0 +1,6 @@
+Pitch:
+This is a webapp designed to allow bands in a local 'scene' to collaborate, find new band members,
+post gigs, share their bandcamp music, and list their musicians.
+Musicians can create a profile, show off their learned instruments, and mark themselves as available for projects.
+Non Musician Users to the site should see bands in their local scene, upcoming gigs, and wanted adds.
+Musicians should be able to see the same but also be able to join Bands, create Bands, and curate their profile.
