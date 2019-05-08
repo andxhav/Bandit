@@ -1,7 +1,5 @@
 class BandSerializer < ActiveModel::Serializer
-  attributes :id, :name, :scene, :genre, :user_id
-
-  has_many :musicians
+  attributes :id, :band_name, :scene, :genre
 
   def user_id
     if current_user
