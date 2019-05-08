@@ -2,21 +2,21 @@ import React, { Component } from 'react'
 import { Router, Route } from 'react-router'
 import App from './App'
 
-class Band extends Component{
+class Musician extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      band: {}
+      musician: {}
     };
   }
 
   componentDidMount() {
-    let bandId = this.props.params.id
-    fetch(`/api/v1/bands/${bandId}`)
+    let musicianId = this.props.params.id
+    fetch(`/api/v1/musicians/${musicianId}`)
       .then(response => {
         if (response.ok){
           console.log(response)
-          console.log("test")
+          console.log(musicianId)
           return response;
         }else {
           let errorMessage = `${response.status}(${response.statusText})` ,
@@ -27,9 +27,9 @@ class Band extends Component{
 
       .then(response => response.json())
       .then(response => {
-        let band = response
+        let musician = response
         this.setState( {
-          band: band
+          musician: musician
         })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -37,27 +37,17 @@ class Band extends Component{
 
   render() {
 
-    if (this.state.band.musicians){
-      musicians = this.state.musicians.map(musician => {
-        return (
-          <Musician
-            //passdown data
-          />
-        )
-      })
-    }
-
     return (
 
       <div>
-        <h1>{this.state.band.band_name}</h1>
+        <h1>{this.state.musician.first_name + " " + this.state.musician.last_name }</h1>
           <h4>Scene:</h4>
-            <p>{this.state.band.scene}</p>
-          <h4>Style:</h4>
-            <p>{this.state.band.genre}</p>
+            <p>{this.state.musician.scene}</p>
+          <h4>Home Town:</h4>
+            <p>{this.state.musician.home_town}</p>
       </div>
     )
   }
 }
 
-export default Band
+export default Musician

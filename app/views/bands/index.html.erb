@@ -2,11 +2,13 @@
   <h1>Bands in Your Scene:</h1>
     <div>
       <% @bands.each do |band| %>
-        <div class="card card-1">
-          <h4>
-          <%= "#{band.band_name}" %>
-          </h4>
-        </div>
+        <a href="/bands/<%= band.id %>" >
+          <div class="card card-1">
+            <h4>
+            <%= "#{band.band_name}" %>
+            </h4>
+          </div>
+        </a>
       <% end %>
     </div>
 </div>
