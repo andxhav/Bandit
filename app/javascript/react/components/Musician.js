@@ -6,7 +6,8 @@ class Musician extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      musician: {}
+      musician: {},
+      userID: null
     };
   }
 
@@ -29,11 +30,13 @@ class Musician extends Component{
       .then(response => {
         let musician = response
         this.setState( {
-          musician: musician
+          musician: musician,
+          userID: musician.user_id
         })
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
+
 
   render() {
 
@@ -45,6 +48,8 @@ class Musician extends Component{
             <p>{this.state.musician.scene}</p>
           <h4>Home Town:</h4>
             <p>{this.state.musician.home_town}</p>
+          <h4>About Me:</h4>
+            <p>{this.state.musician.bio}</p>
       </div>
     )
   }

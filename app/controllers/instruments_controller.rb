@@ -1,3 +1,0 @@
-class InstrumentsController < ApplicationController
-
-end
