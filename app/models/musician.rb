@@ -5,6 +5,7 @@ class Musician < ApplicationRecord
   validates :email, presence: true
   validates :scene, presence: true
 
-  has_many :instruments
   has_many :bands, through: :band_members
+
+  belongs_to :user
 end

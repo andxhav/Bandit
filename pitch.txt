@@ -4,3 +4,53 @@ post gigs, share their bandcamp music, and list their musicians.
 Musicians can create a profile, show off their learned instruments, and mark themselves as available for projects.
 Non Musician Users to the site should see bands in their local scene, upcoming gigs, and wanted adds.
 Musicians should be able to see the same but also be able to join Bands, create Bands, and curate their profile.
+
+PITCH PITCH PITCH-------
+
+Good Morning everyone, My name is Andrew Haveles.
+
+Growing up, I was always very drawn to problem solving and building things from the ground up.
+
+      {In high school, I attended a 3 year vocational program focused on engineering and robotics and fully realized my passion for applied problem solving and engineering.
+
+      There, I was introduced to programming through applications utilizing micro-controllers.}
+
+I then went on to pursue my BS in Mechanical engineering at Worcester Polytechnic Institute to hone in my engineer's problem solving mindset,
+furthering my love for applied problem solving through design and analysis.
+
+As I entered the engineering workforce, I found myself enjoying many aspecs of the field, but always felt i was craving more direct and engaging problem solving.
+
+During my time at an IoT startup, i was exposed to many of the facets of web development and saw how engaging the work was and how it was such a direct/constant use of my engineer's skills set.
+
+So, through the encouragement of my friends, family, and colleagues, I decided this was the next step in my career, and decided to join Launch Academy to accelerate this next step.
+
+Now, I am not just a nerd who loves engineering, but I am also a nerd who loves to spend their time making and listening to music.
+
+The problem is, I've always found it hard to jump into a city's local music scene and find people to play and collaborate with.
+
+That is why I have decided to take my new skills from Launch A to develop a webapp I am calling Bandit.
+
+Bandit is a platform that will allow users to facilitate collaboration and creation within their local music scene on an open and free platform.
+
+Users will be able to make a musician's profile, integrate their BandCamp recordings, and either start a band, look for new members, or mark yourself as available to join projects.
+
+Musicians and nonMusicians alike will be able to browse the bands in their scene and find new local music to support or collab with.
+
+Bands will be able to promote their shows, share new music, or update their fanbase on their profile's blog posts.
+
+Bands in the DIY music scene will be able to more easily share, gather, and plan via this platform, creating whole new path for community organization possibilities.
+
+At the end of the day, I am creating this to facilitate collaboration in independent music communities and make these local bands easier to find, support, and follow.
+
+Local music is a major cultural aspect of a community, and  through Bandit, accessiblity for everyone is my goal.
+
+Explore, Collaborate, and Create on Bandit.
+
+Thank you for your time.
+
+
+
+
+NOTES:
+
+cut the sell at the end, sell yourself instead

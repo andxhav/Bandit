@@ -5,3 +5,19 @@
 <% if flash[:notice] %>
 <div class="notice"<%= flash[:notice] %></div>
 <% end %>
+
+<% if Musician.find_by(user_id: @user.id).id == @musician.id %>
+  <a href="/bands/new"> Start a New Band!</a>
+  <% band_list = "Your Bands" %>
+<% else %>
+  <% band_list = "Musician's Bands" %>
+<% end %>
+
+<div>
+  <h4><%= band_list %></h4>
+  <% memberships = BandMember.where(musician_id: @musician.id) %>
+  <% memberships.each do |membership| %>
+    <% band = Band.find_by(id: membership.band_id)%>
+    <a href="/bands/<%= band.id %>"><li><%= band.band_name %></li></a>
+  <% end %>
+</div>

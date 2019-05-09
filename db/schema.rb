@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_05_07_194541) do
     t.string "band_name", null: false
     t.string "scene", null: false
     t.string "genre"
+    t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,25 +44,18 @@ ActiveRecord::Schema.define(version: 2019_05_07_194541) do
     t.index ["band_id"], name: "index_gigs_on_band_id"
   end
 
-  create_table "instruments", force: :cascade do |t|
-    t.string "instrument", null: false
-    t.integer "years_experience", null: false
-    t.bigint "musician_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["musician_id"], name: "index_instruments_on_musician_id"
-  end
-
   create_table "musicians", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "home_town"
     t.string "email", null: false
     t.string "scene", null: false
-    t.bigint "band_id"
+    t.string "instruments", null: false
+    t.text "bio"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["band_id"], name: "index_musicians_on_band_id"
+    t.index ["user_id"], name: "index_musicians_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

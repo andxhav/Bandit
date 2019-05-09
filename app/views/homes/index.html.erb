@@ -1,21 +1,49 @@
+
+<% if @current_user == nil %>
+  <% welcome_tile = "Log-In" %>
+  <% path = "/users/sign_in" %>
+<% elsif Musician.find_by(user_id: @current_user.id) == nil%>
+  <% welcome_tile = "Create a Musician Profile" %>
+  <% path = "/musicians/new" %>
+  <% start_band_path = "/musicians/new" %>
+<% else %>
+  <% welcome_tile = "Musician Profile" %>
+  <% musician = Musician.find_by(user_id: @current_user.id) %>
+  <% path = "/musicians/#{musician.id}" %>
+  <% start_band_path = "/bands/new" %>
+<% end %>
+
+
+
+
 <div><h3><b>Welcome to Bandit</b></h3></div>
-<a href="/users/sign_in">
+
+<a href= <%= "#{path}" %> >
   <div class="card card-1">
-    <p>Log-In</p>
+    <p> <%= welcome_tile %> </p>
   </div>
 </a>
+
 <a href="/bands">
   <div class="card card-1">
     <p>Bands</p>
   </div>
 </a>
+
 <a>
   <div class="card card-1">
     <p>Gigs</p>
   </div>
 </a>
+
 <a href="/musicians">
   <div class="card card-1">
     <p>Musicians</p>
+  </div>
+</a>
+
+<a href= <%= "#{start_band_path}" %> >
+  <div class="card card-1">
+    <p>Start a Band!</p>
   </div>
 </a>

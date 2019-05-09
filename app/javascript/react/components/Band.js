@@ -55,6 +55,8 @@ class Band extends Component{
             <p>{this.state.band.scene}</p>
           <h4>Style:</h4>
             <p>{this.state.band.genre}</p>
+          <h4>About the Band:</h4>
+            <p>{this.state.band.bio}</p>
       </div>
     )
   }

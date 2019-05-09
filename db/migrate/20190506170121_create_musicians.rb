@@ -6,8 +6,10 @@ class CreateMusicians < ActiveRecord::Migration[5.2]
       t.string :home_town
       t.string :email, null: false
       t.string :scene, null: false
+      t.string :instruments, null: false
+      t.text :bio
 
-      t.belongs_to :band
+      t.belongs_to :user
 
       t.timestamps
     end
