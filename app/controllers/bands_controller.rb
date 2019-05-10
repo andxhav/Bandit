@@ -8,17 +8,21 @@ class BandsController < ApplicationController
 
   def show
     @band = Band.find(params[:id])
-    # @musicians = @band.musicians
+    @user = current_user
+    @band_member = BandMember.create
   end
 
   def new
     @band = Band.new
+    @user = current_user
   end
 
   def create
     @band = Band.new(band_params)
     if @band.save
       flash[:notice] = "Band successfully created."
+      @band_member = BandMember.create(band_id: @band.id, musician_id: Musician.find_by(user_id: current_user.id).id)
+
       redirect_to @band
     else
       render action: 'new'
@@ -28,13 +32,13 @@ class BandsController < ApplicationController
   private
 
   def band_params
-    params.require(:band).permit(:name, :scene, :genre)
+    params.require(:band).permit(:band_name, :scene, :genre, :bio)
   end
 
   protected
 
   def authorize_user
-    if !user_signed_in? || !current_user.admin?
+    if !user_signed_in?
       flash[:notice] = "You need to be signed in to start a band."
       redirect_to '/users/sign_in'
     end

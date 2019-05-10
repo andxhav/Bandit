@@ -6,12 +6,17 @@
 <div class="notice"<%= flash[:notice] %></div>
 <% end %>
 
-<% if Musician.find_by(user_id: @user.id).id == @musician.id %>
-  <a href="/bands/new"> Start a New Band!</a>
-  <% band_list = "Your Bands" %>
+<% if @user != nil %>
+  <% user_musician = Musician.find_by(user_id: @user.id) %>
+  <% if user_musician.id == @musician.id %>
+    <a href="/bands/new"> Start a New Band!</a>
+    <% band_list = "Your Bands" %>
+  <% else %>
+    <% band_list = "Musician's Bands" %>
+  <% end %>
 <% else %>
   <% band_list = "Musician's Bands" %>
-<% end %>
+<% end %> 
 
 <div>
   <h4><%= band_list %></h4>

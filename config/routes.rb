@@ -2,10 +2,13 @@ Rails.application.routes.draw do
   root 'homes#index'
   devise_for :users
 
+  resources :band_members
+
   resources :musicians, only: [:index, :new, :create, :show]
 
   resources :bands, only: [:index, :show, :new, :create] do
     resources :musicians, only: [:new, :create, :show]
+    resources :band_members, only: [:new, :create]
   end
 
   namespace :api do
