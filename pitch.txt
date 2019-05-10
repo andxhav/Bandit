@@ -11,10 +11,6 @@ Good Morning everyone, My name is Andrew Haveles.
 
 Growing up, I was always very drawn to problem solving and building things from the ground up.
 
-      {In high school, I attended a 3 year vocational program focused on engineering and robotics and fully realized my passion for applied problem solving and engineering.
-
-      There, I was introduced to programming through applications utilizing micro-controllers.}
-
 I then went on to pursue my BS in Mechanical engineering at Worcester Polytechnic Institute to hone in my engineer's problem solving mindset,
 furthering my love for applied problem solving through design and analysis.
 
@@ -44,13 +40,29 @@ At the end of the day, I am creating this to facilitate collaboration in indepen
 
 Local music is a major cultural aspect of a community, and  through Bandit, accessiblity for everyone is my goal.
 
-Explore, Collaborate, and Create on Bandit.
 
 Thank you for your time.
 
 
 
+Bullet Points:
+intro::::
+- growing up love of problem solving and building/creating
+- lead me to pursue my undergrad degree in ME from WPI
+- there i...fully realized and honed my engineer's skillset
+- I then entered the workforce - enjoyed many aspecs, but still had craving for consistent PS and direct hands in building
+- during my time at an IoT startup - exposed to many facets of webdev and was facinated - decided thats what i wanted
+- thru encouragement from many people - decided to accelerate my next career step with Launch Academy
 
-NOTES:
+transition::::
+- NOW not just a nerd who loves problem solving - also a huge music nerd
+- always had trouble getting into local music - thats why Bandit
+  - finding bands to follow, other musicians, and local gigs
 
-cut the sell at the end, sell yourself instead
+app::::
+- Users can: view bands in their scene, view musicians, view upcoming gigs
+- if users would like to create their own musician profile - they can log in and generate their Profile
+- there they can describe themselves, start a band, or mark themselves as open for projects
+- if they have a band, they can add or remove members, embed their bandcamp, etc
+- Bands can also create gig's, promote them, and show users map with google maps Api
+- at the end of the day the goal is to make local music easier to explore and far more accessible

@@ -31,6 +31,7 @@ class Band extends Component{
         this.setState( {
           band: band
         })
+          console.log(this.state.band)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }

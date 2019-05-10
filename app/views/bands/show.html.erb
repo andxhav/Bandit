@@ -5,3 +5,37 @@
 <% if flash[:notice] %>
 <div class="notice"<%= flash[:notice] %></div>
 <% end %>
+
+<h3>Band Members:</h3>
+<div>
+  <% memberships = BandMember.where(band_id: @band.id) %>
+  <% memberships.each do |membership| %>
+    <% musician = Musician.find_by(id: membership.musician_id)%>
+    <a href="/musicians/<%= musician.id %>"><li><%= musician.first_name %></li></a>
+  <% end %>
+</div>
+
+<% add_member_view = "hidden" %>
+<% if @user != nil && Musician.find_by(user_id: @user.id) != nil %>
+  <% user_musician = Musician.find_by(user_id: @user.id) %>
+  <% band_members = BandMember.where(band_id: @band.id) %>
+  <% band_members.each do |member| %>
+    <% if member.musician_id == user_musician.id %>
+      <% add_member_view = "visible" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1 ><%= add_member_view %></h1>
+
+<% if add_member_view == 'visible' %>
+  <div display=<%= add_member_view %> >
+    <%= form_for [@band, @band_member] do |f| %>
+
+      <%= f.label :musician_id, "Select a New Musician to Add" %>
+      <%= f.collection_select(:musician_id, Musician.all, :id, :first_name ) %>
+
+      <%= f.submit "Submit A New Member!" %>
+    <% end %>
+  </div>
+<% end %>

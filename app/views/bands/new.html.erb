@@ -1,0 +1,18 @@
+<h1>Start Your Band!</h1>
+
+<%= form_for [@band] do |f| %>
+  <%= f.label :band_name, "Band Name" %>
+  <%= f.text_field :band_name %>
+
+  <%= f.label :bio, "Introduce Your Band!" %>
+  <%= f.text_field :bio %>
+
+  <%= f.label :scene, "Scene" %>
+  <%= f.text_field :scene %>
+
+  <%= f.label :genre, "Describe the Band's Sound/Genre" %>
+  <%= f.text_field :genre %>
+
+  <%= f.submit "Submit Your Band!" %>
+
+<% end %>
