@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :band_members
 
-  resources :musicians, only: [:index, :new, :create, :show]
+  resources :musicians, only: [:index, :new, :create, :show, :update]
 
   resources :bands, only: [:index, :show, :new, :create] do
     resources :musicians, only: [:new, :create, :show]
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :bands, only: [:show]
-      resources :musicians, only: [:show]
+      resources :musicians, only: [:show, :create, :update]
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
