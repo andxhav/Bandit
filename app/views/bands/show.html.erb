@@ -6,6 +6,15 @@
 <div class="notice"<%= flash[:notice] %></div>
 <% end %>
 
+<% band = @band %>
+<% if band.bandcamp_embedded != nil %>
+  <div>
+    <%= band.bandcamp_embedded.html_safe %>
+  </div>
+<% end %>
+
+
+
 <h3>Band Members:</h3>
 <div>
   <% memberships = BandMember.where(band_id: @band.id) %>
@@ -36,6 +45,15 @@
       <%= f.collection_select(:musician_id, Musician.all, :id, :first_name ) %>
 
       <%= f.submit "Submit A New Member!" %>
+    <% end %>
+  </div>
+  <div display=<%= add_member_view %> >
+    <%= form_for [@band] do |f| %>
+
+      <%= f.label :bandcamp_embedded, "Add Your BandCamp Album!" %>
+      <%= f.text_field :bandcamp_embedded  %>
+
+      <%= f.submit "Embed this BandCamp!" %>
     <% end %>
   </div>
 <% end %>

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :musicians, only: [:index, :new, :create, :show, :update]
 
-  resources :bands, only: [:index, :show, :new, :create] do
+  resources :bands, only: [:index, :show, :new, :create, :update] do
     resources :musicians, only: [:new, :create, :show]
     resources :band_members, only: [:new, :create]
   end
