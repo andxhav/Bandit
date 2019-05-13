@@ -23,16 +23,25 @@ class BandsController < ApplicationController
       flash[:notice] = "Band successfully created."
       @band_member = BandMember.create(band_id: @band.id, musician_id: Musician.find_by(user_id: current_user.id).id)
 
-      redirect_to @band
+
     else
       render action: 'new'
     end
+  end
+
+  def update
+    @band = Band.update(params[:id], bandcamp_params)
+    redirect_to @band
   end
 
   private
 
   def band_params
     params.require(:band).permit(:band_name, :scene, :genre, :bio)
+  end
+
+  def bandcamp_params
+    params.require(:band).permit(:bandcamp_embedded)
   end
 
   protected
