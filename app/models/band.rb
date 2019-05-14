@@ -1,4 +1,6 @@
 class Band < ApplicationRecord
+  mount_uploader :band_photo, BandPhotoUploader
+
   validates :band_name, presence: true
   validates :scene, presence: true
 

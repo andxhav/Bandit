@@ -42,7 +42,7 @@ class Band extends Component{
       musicians = this.state.musicians.map(musician => {
         return (
           <Musician
-            //passdown data
+
           />
         )
       })
@@ -52,6 +52,7 @@ class Band extends Component{
 
       <div>
         <h1>{this.state.band.band_name}</h1>
+        <img src={this.state.band.band_photo} />
           <h4>Scene:</h4>
             <p>{this.state.band.scene}</p>
           <h4>Style:</h4>
