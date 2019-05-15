@@ -1,5 +1,8 @@
 <% band = Band.find(@gig.band_id) %>
 <% gig_photo_url = @gig.gig_photo.url %>
+<% center = [@gig.gig_lat, @gig.gig_long].join(" ,") %>
+<%  %>
+
 <h1><%= band.band_name %> Upcoming Gig!</h1>
 
 <div class="">
@@ -10,3 +13,10 @@
 <p> <%= @gig.address %> </p>
 <p> <%= @gig.date.strftime("Start Time: %I:%M%p") %> </p>
 <p> <%= @gig.date.strftime("Date: %m/%d/%Y") %> </p>
+
+<h3>Location:</h3>
+
+<iframe width="300" height="300" frameborder="0" style="border:0"
+ src="https://www.google.com/maps/embed/v1/place?key=<%= Rails.application.credentials.google_maps_api_key %>&q=<%=center%>"
+ allowfullscreen>
+</iframe>
