@@ -1,0 +1,14 @@
+<div>
+  <h1>Upcoming Gigs:</h1>
+    <div>
+      <% @gigs.each do |gig| %>
+        <a href="/gigs/<%= gig.id %>" >
+          <div class="card card-1">
+            <h4>
+            <%= "#{gig.date}" %>
+            </h4>
+          </div>
+        </a>
+      <% end %>
+    </div>
+</div>

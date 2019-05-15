@@ -6,7 +6,8 @@ class Band extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      band: {}
+      band: {},
+      bandPhotoURL: ""
     };
   }
 
@@ -29,29 +30,21 @@ class Band extends Component{
       .then(response => {
         let band = response
         this.setState( {
-          band: band
+          band: band,
+          bandPhotoURL: band.band_photo.url
         })
-          console.log(this.state.band)
+          console.log(this.state)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   render() {
 
-    if (this.state.band.musicians){
-      musicians = this.state.musicians.map(musician => {
-        return (
-          <Musician
-            //passdown data
-          />
-        )
-      })
-    }
-
     return (
 
       <div>
         <h1>{this.state.band.band_name}</h1>
+        <img src={this.state.bandPhotoURL}/>
           <h4>Scene:</h4>
             <p>{this.state.band.scene}</p>
           <h4>Style:</h4>
