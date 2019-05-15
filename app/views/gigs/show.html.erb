@@ -1,0 +1,12 @@
+<% band = Band.find(@gig.band_id) %>
+<% gig_photo_url = @gig.gig_photo.url %>
+<h1><%= band.band_name %> Upcoming Gig!</h1>
+
+<div class="">
+  <img src=" <%= gig_photo_url %> "/>
+</div>
+
+<h3>Info:</h3>
+<p> <%= @gig.address %> </p>
+<p> <%= @gig.date.strftime("Start Time: %I:%M%p") %> </p>
+<p> <%= @gig.date.strftime("Date: %m/%d/%Y") %> </p>

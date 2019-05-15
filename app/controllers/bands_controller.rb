@@ -10,6 +10,7 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
     @user = current_user
     @band_member = BandMember.create
+    @gigs = Gig.where(band_id: @band.id )
   end
 
   def new
@@ -23,7 +24,7 @@ class BandsController < ApplicationController
       flash[:notice] = "Band successfully created."
       @band_member = BandMember.create(band_id: @band.id, musician_id: Musician.find_by(user_id: current_user.id).id)
 
-
+      redirect_to @band
     else
       render action: 'new'
     end
@@ -37,7 +38,7 @@ class BandsController < ApplicationController
   private
 
   def band_params
-    params.require(:band).permit(:band_name, :scene, :genre, :bio)
+    params.require(:band).permit(:band_name, :scene, :genre, :bio, :band_photo)
   end
 
   def bandcamp_params

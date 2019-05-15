@@ -56,4 +56,11 @@
       <%= f.submit "Embed this BandCamp!" %>
     <% end %>
   </div>
+  <div display=<%= add_member_view %> >
+    <a href="/bands/<%= @band.id %>/gigs/new">
+    <button class="button" style="vertical-align:middle">
+      <span>Add a Gig </span>
+    </button>
+    </a>
+  </div>
 <% end %>
