@@ -41,10 +41,9 @@ class Band extends Component{
   render() {
 
     return (
-
-      <div>
+    <div>
+      <div className="profile-info">
         <h1>{this.state.band.band_name}</h1>
-        <img src={this.state.bandPhotoURL}/>
           <h4>Scene:</h4>
             <p>{this.state.band.scene}</p>
           <h4>Style:</h4>
@@ -52,6 +51,10 @@ class Band extends Component{
           <h4>About the Band:</h4>
             <p>{this.state.band.bio}</p>
       </div>
+      <div className="profile-info">
+        <img src={this.state.bandPhotoURL}/>
+      </div>
+    </div>
     )
   }
 }

@@ -15,35 +15,38 @@
 
 
 
+<div>
+  <div><h5><b>Welcome to</b></h5></div>
+  <h1><b>Bandit</b></h1>
+  <div class="index-container">
+    <a href= <%= "#{path}" %> >
+      <div class="card card-1">
+        <h4 class="text-center"> <%= welcome_tile %> </h4>
+      </div>
+    </a>
 
-<div><h3><b>Welcome to Bandit</b></h3></div>
+    <a href="/bands">
+      <div class="card card-1">
+        <h4 class="text-center">Bands</h4>
+      </div>
+    </a>
 
-<a href= <%= "#{path}" %> >
-  <div class="card card-1">
-    <p> <%= welcome_tile %> </p>
+    <a href="/gigs">
+      <div class="card card-1">
+        <h4 class="text-center">Gigs</h4>
+      </div>
+    </a>
+
+    <a href="/musicians">
+      <div class="card card-1">
+        <h4 class="text-center">Musicians</h4>
+      </div>
+    </a>
+
+    <a href= <%= "#{start_band_path}" %> >
+      <div class="card card-1">
+        <h4 class="text-center">Start a Band!</h4>
+      </div>
+    </a>
   </div>
-</a>
-
-<a href="/bands">
-  <div class="card card-1">
-    <p>Bands</p>
-  </div>
-</a>
-
-<a>
-  <div class="card card-1">
-    <p>Gigs</p>
-  </div>
-</a>
-
-<a href="/musicians">
-  <div class="card card-1">
-    <p>Musicians</p>
-  </div>
-</a>
-
-<a href= <%= "#{start_band_path}" %> >
-  <div class="card card-1">
-    <p>Start a Band!</p>
-  </div>
-</a>
+</div>

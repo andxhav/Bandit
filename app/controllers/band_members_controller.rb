@@ -8,7 +8,6 @@ class BandMembersController < ApplicationController
   end
 
   def create
-    binding.pry
     @band = Band.find(params[:band_id])
     @band_member = BandMember.create(band_id: params[:band_id], musician_id: params[:band_member][:musician_id])
     if @band_member.save

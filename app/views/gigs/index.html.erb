@@ -2,10 +2,12 @@
   <h1>Upcoming Gigs:</h1>
     <div>
       <% @gigs.each do |gig| %>
+      <% band = Band.find(gig.band_id) %>
         <a href="/gigs/<%= gig.id %>" >
           <div class="card card-1">
             <h4>
-            <%= "#{gig.date}" %>
+            <%= "#{band.band_name}" %><br>
+            <%= "#{gig.date.strftime("%m/%d/%Y")}" %>
             </h4>
           </div>
         </a>
