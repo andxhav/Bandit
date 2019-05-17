@@ -1,23 +1,25 @@
-<h1>When is your Band's next Gig?</h1>
+<div class="form">
+  <h2>When is your Band's next Gig?</h2>
 
-<%= form_for [@band, @gig] do |f| %>
-  <%= f.label :address, "Gig Address" %>
-  <%= f.text_field :address %>
+  <%= form_for [@band, @gig] do |f| %>
+    <%= f.label :address, "Gig Address" %>
+    <%= f.text_field :address %>
 
-  <%= f.label :gig_lat, "Address Lat" %>
-  <%= f.text_field :gig_lat %>
+    <%= f.label :gig_lat, "Address Lat" %>
+    <%= f.text_field :gig_lat %>
 
-  <%= f.label :gig_long, "Address Long" %>
-  <%= f.text_field :gig_long %>
+    <%= f.label :gig_long, "Address Long" %>
+    <%= f.text_field :gig_long %>
 
-  <%= f.label :date, "datetime" %>
-  <%= f.text_field :date %>
+    <%= f.label :date, "datetime" %>
+    <%= f.text_field :date %>
 
-  <%= f.label :gig_photo, "Upload a Gig Photo or Poster!" %>
-  <%= f.file_field :gig_photo %>
+    <%= f.label :gig_photo, "Upload a Gig Photo or Poster!" %>
+    <%= f.file_field :gig_photo %>
 
-  <%= f.hidden_field :band_id, value: @band.id %>
+    <%= f.hidden_field :band_id, value: @band.id %>
 
-  <%= f.submit "Submit Your Gig" %>
+    <%= f.submit "Submit Your Gig" %>
 
-<% end %>
+  <% end %>
+</div>

@@ -6,23 +6,35 @@
 <div class="notice"<%= flash[:notice] %></div>
 <% end %>
 
-<% if @user != nil %>
-  <% user_musician = Musician.find_by(user_id: @user.id) %>
-  <% if user_musician.id == @musician.id %>
-    <a href="/bands/new"> Start a New Band!</a>
-    <% band_list = "Your Bands" %>
+<div>
+  <% if @user != nil %>
+    <% user_musician = Musician.find_by(user_id: @user.id) %>
+    <% if user_musician.id == @musician.id %>
+    <div>
+      <a href="/bands/new">
+        <button class="button" style="vertical-align:center">
+          Start a New Band!
+        </button>
+      </a>
+    </div>
+      <% band_list = "Your Bands" %>
+    <% else %>
+      <% band_list = "Musician's Bands" %>
+    <% end %>
   <% else %>
     <% band_list = "Musician's Bands" %>
   <% end %>
-<% else %>
-  <% band_list = "Musician's Bands" %>
-<% end %> 
 
-<div>
-  <h4><%= band_list %></h4>
-  <% memberships = BandMember.where(musician_id: @musician.id) %>
-  <% memberships.each do |membership| %>
-    <% band = Band.find_by(id: membership.band_id)%>
-    <a href="/bands/<%= band.id %>"><li><%= band.band_name %></li></a>
-  <% end %>
+  <div class= "bands-info">
+    <h4><%= band_list %></h4>
+    <% memberships = BandMember.where(musician_id: @musician.id) %>
+    <% memberships.each do |membership| %>
+      <% band = Band.find_by(id: membership.band_id)%>
+      <a href="/bands/<%= band.id %>">
+        <div class="musician-bands-card">
+          <li><%= band.band_name %></li>
+        </div>
+      </a>
+    <% end %>
+  </div>
 </div>

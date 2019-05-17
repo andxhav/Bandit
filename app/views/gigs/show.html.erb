@@ -3,20 +3,29 @@
 <% center = [@gig.gig_lat, @gig.gig_long].join(" ,") %>
 <%  %>
 
-<h1><%= band.band_name %> Upcoming Gig!</h1>
+<div class="gig-info">
+  <div class= "profile-info">
+    <h1><%= band.band_name %> Upcoming Gig!</h1>
 
-<div class="">
-  <img src=" <%= gig_photo_url %> "/>
+    <div >
+      <img src=" <%= gig_photo_url %> "/>
+    </div>
+  </div>
+<div class="giginfo">
+  <div class= "profile-info">
+    <h2>Info:</h2>
+    <p> <%= @gig.address %> </p>
+    <p> <%= @gig.date.strftime("Start Time: %I:%M%p") %> </p>
+    <p> <%= @gig.date.strftime("Date: %m/%d/%Y") %> </p>
+  </div>
+
+  <div class= "profile-info">
+    <h2>Location:</h2>
+    <iframe width="300" height="300" frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=<%= Rails.application.credentials.google_maps_api_key %>&q=<%=center%>"
+    allowfullscreen>
+    </iframe>
+  </div>
 </div>
 
-<h3>Info:</h3>
-<p> <%= @gig.address %> </p>
-<p> <%= @gig.date.strftime("Start Time: %I:%M%p") %> </p>
-<p> <%= @gig.date.strftime("Date: %m/%d/%Y") %> </p>
-
-<h3>Location:</h3>
-
-<iframe width="300" height="300" frameborder="0" style="border:0"
- src="https://www.google.com/maps/embed/v1/place?key=<%= Rails.application.credentials.google_maps_api_key %>&q=<%=center%>"
- allowfullscreen>
-</iframe>
+</div>

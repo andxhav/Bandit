@@ -68,14 +68,14 @@ class Musician extends Component{
 
   clickMusicianState(){
     let musicianStateStored = this.state.musicianState
-    if (musicianStateStored === "open"){
-      musicianStateStored = "closed"
+    if (musicianStateStored === "Open"){
+      musicianStateStored = "Closed"
       this.setState({
         musicianState: musicianStateStored
       })
       this.handleMusicianState(musicianStateStored)
     } else {
-      musicianStateStored = "open"
+      musicianStateStored = "Open"
       this.setState({
         musicianState: musicianStateStored
       })
@@ -87,22 +87,25 @@ class Musician extends Component{
   render() {
 
     return (
-
       <div>
-        <h1>{this.state.musician.first_name + " " + this.state.musician.last_name }</h1>
-          <h4>Scene:</h4>
-            <p>{this.state.musician.scene}</p>
-          <h4>Home Town:</h4>
-            <p>{this.state.musician.home_town}</p>
+        <div className="profile-info">
+          <h1>{this.state.musician.first_name + " " + this.state.musician.last_name }</h1>
+            <h4>Scene:</h4>
+              <p>{this.state.musician.scene}</p>
+            <h4>Home Town:</h4>
+              <p>{this.state.musician.home_town}</p>
+        </div>
+
+        <div className="profile-info">
           <h4>About Me:</h4>
             <p>{this.state.musician.bio}</p>
           <h4>Instruments:</h4>
             <p>{this.state.musician.instruments}</p>
           <h4>Musician State:</h4>
-            <a class={this.state.stateClass} onClick={this.clickMusicianState}>
+            <a className={this.state.stateClass} onClick={this.clickMusicianState}>
               {this.state.musicianState}
             </a>
-
+        </div>
       </div>
     )
   }

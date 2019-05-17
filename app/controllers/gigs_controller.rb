@@ -9,13 +9,11 @@ class GigsController < ApplicationController
   end
 
   def new
-    binding.pry
     @gig = Gig.new
     @band = Band.find(params[:band_id])
   end
 
   def create
-    binding.pry
     @gig = Gig.new(gig_params)
 
     if @gig.save

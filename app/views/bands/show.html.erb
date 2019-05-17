@@ -8,19 +8,19 @@
 
 <% band = @band %>
 <% if band.bandcamp_embedded != nil %>
-  <div>
+  <div class="profile-info">
     <%= band.bandcamp_embedded.html_safe %>
   </div>
 <% end %>
 
 
 
-<h3>Band Members:</h3>
-<div>
+<div class="profile-info">
+  <h3>Band Members:</h3>
   <% memberships = BandMember.where(band_id: @band.id) %>
   <% memberships.each do |membership| %>
     <% musician = Musician.find_by(id: membership.musician_id)%>
-    <a href="/musicians/<%= musician.id %>"><li><%= musician.first_name %></li></a>
+    <a href="/musicians/<%= musician.id %>"><li class = "musician-bands-card "><%= musician.first_name %></li></a>
   <% end %>
 </div>
 
@@ -35,32 +35,39 @@
   <% end %>
 <% end %>
 
-<h1 ><%= add_member_view %></h1>
+<div>
+  <div class="form">
+    <% if add_member_view == 'visible' %>
+      <div display=<%= add_member_view %> >
+        <h4>Add a Band Member</h4>
+        <%= form_for [@band, @band_member] do |f| %>
 
-<% if add_member_view == 'visible' %>
-  <div display=<%= add_member_view %> >
-    <%= form_for [@band, @band_member] do |f| %>
+          <%= f.label :musician_id, "Select a New Musician to Add" %>
+          <%= f.collection_select(:musician_id, Musician.all, :id, :first_name) %>
 
-      <%= f.label :musician_id, "Select a New Musician to Add" %>
-      <%= f.collection_select(:musician_id, Musician.all, :id, :first_name ) %>
-
-      <%= f.submit "Submit A New Member!" %>
-    <% end %>
+          <%= f.submit "Submit A New Member!" %>
+        <% end %>
+      </div>
   </div>
-  <div display=<%= add_member_view %> >
-    <%= form_for [@band] do |f| %>
+  <div class="form">
+      <div display=<%= add_member_view %> >
+        <h4>Add or Update Your Bandcamp player</h4>
+        <%= form_for [@band] do |f| %>
 
-      <%= f.label :bandcamp_embedded, "Add Your BandCamp Album!" %>
-      <%= f.text_field :bandcamp_embedded  %>
+          <%= f.label :bandcamp_embedded, "Paste your Bancamp embeded player code" %>
+          <%= f.text_field :bandcamp_embedded  %>
 
-      <%= f.submit "Embed this BandCamp!" %>
-    <% end %>
+          <%= f.submit "Embed this BandCamp!" %>
+        <% end %>
+      </div>
+  <% end %>
   </div>
-  <div display=<%= add_member_view %> >
+
+  <div display=<%= add_member_view %> class="form" >
     <a href="/bands/<%= @band.id %>/gigs/new">
-    <button class="button" style="vertical-align:middle">
-      <span>Add a Gig </span>
-    </button>
+      <button class="button" style="vertical-align:right">
+        <span>Add a Gig </span>
+      </button>
     </a>
   </div>
-<% end %>
+</div>
